@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+/* div{
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+} */
+
+.div_wrap {
+    border: 1px solid blue;
+    padding: 10px;
+    text-align: center;
+}
+
+.div_user_wrap {
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
+
+.div_wrap_address {
+    border: 1px solid yellow;
+    padding: 10px;
+    text-align: center;
+}
+.div_address_ittem{
+    border: 1px solid green;
+    padding: 10px;
+    text-align: center;
+}
+.div_text_class{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+.clas_table{
+    border: 1px solid rgb(95, 25, 25);
+    padding: 2px;
+    text-align: center;
+}
