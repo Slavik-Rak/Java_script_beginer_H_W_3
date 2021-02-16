@@ -960,8 +960,120 @@ for (let elem of pars) {
 
 
 
-
 // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі users. За допомогою document.createElement вивести їх в браузер. Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт в свій блок (блок в блоці).
+/* 
+fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(users => {
+
+        for (let user_obj of users) {
+            let div_user_obj = document.createElement('div');
+            div_user_obj.classList.add('div_user_obj');
+
+
+            for (let key in user_obj) {
+                console.log(typeof user_obj[key] + ' - ' + user_obj[key]);
+
+                div_user_obj.innerHTML += key + ' : ';
+                if (typeof user_obj[key] == 'object') {
+                    let add_div = document.createElement('div');
+                    add_div.classList.add('add_div');
+
+                    let add_infa = user_obj[key];
+                    for (let add_key in add_infa) {
+                        add_div.innerHTML += add_key + ' : ';
+                        add_div.innerHTML += add_infa[add_key] + '<br>';
+                    }
+                    div_user_obj.appendChild(add_div);
+                    console.log('!!!')
+                } else {
+
+                    div_user_obj.innerHTML += user_obj[key] + '<br>';
+                }
+
+            }
+            document.body.appendChild(div_user_obj);
+        }
+    })
+
+ */
+
 // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі posts. За допомогою document.createElement вивести їх в браузер. Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт(якщо він існує) в свій блок (блок в блоці).
+/* 
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(posts => {
+
+        for (let elem_post of posts) {
+            console.log(elem_post);
+            let div_post = document.createElement('div');
+            div_post.classList.add('div_post');
+
+            for (let key_post in elem_post) {
+                div_post.innerHTML += key_post + ' : ';
+                div_post.innerHTML += elem_post[key_post] + ' <br> ';
+
+            }
+            document.body.appendChild(div_post);
+        }
+
+    })
+ */
 // *** за допомогою fetch (як в прикладі) отримати від jsonplaceholder всі comments. За допомогою document.createElement вивести їх в браузер. Помістити кожен окремий об'єкт в блок, при цьому кожен внутрішній об'єкт(якщо він існує) в свій блок (блок в блоці).
+
+/* 
+fetch('https://jsonplaceholder.typicode.com/comments')
+    .then(response => response.json())
+    .then(comments => {
+        for (let elem_comment of comments) {
+
+            let div_elem_comment = document.createElement('div');
+            div_elem_comment.classList.add('div_elem_comment');
+
+            for(let key_elem_comment in elem_comment){
+                div_elem_comment.innerHTML += key_elem_comment + ' : ';
+                div_elem_comment.innerHTML += elem_comment[key_elem_comment] + ' <br> ';
+            }
+            document.body.appendChild(div_elem_comment);
+        }
+    })
+ */
 // ****** при помощи fetch (как в примере) получить от jsonplaceholder все posts. Внутри последнего then() сделать еще один fetch который сделает запрос и получит все comments. Объеденить соответсвующий post с соответсвующими comment и вывести в браузер. Подсказка : в каждом comment есть поле postId которое определяет какой комментарий принадлежит какому посту
+
+ /* 
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(posts => {
+
+        fetch('https://jsonplaceholder.typicode.com/comments')
+            .then(response => response.json())
+            .then(comments => {
+
+                for (let i = 0; i < posts.length; i++) {
+                    let div_post = document.createElement('div');
+                    div_post.classList.add('div_post');
+
+                    for (let key_post in posts[i]) {
+                        div_post.innerHTML += key_post + ' : ';
+                        div_post.innerHTML += posts[i][key_post] + ' <br> ';
+                    }
+
+                    div_post.innerHTML += '<hr>';
+                    div_post.innerHTML += 'COMENS';
+                    div_post.innerHTML += '<hr>';
+                    
+//                    comments 
+                    for (let j = 0; j < comments.length; j++) {
+
+                        if (comments[j]['postId'] == posts[i]['userId']) {
+                            for (let key_elem_comment in comments[j]) {
+                                div_post.innerHTML += key_elem_comment + ' : ';
+                                div_post.innerHTML += comments[j][key_elem_comment] + ' <br> ';
+                            }
+                        }
+                    }
+                    document.body.appendChild(div_post);
+                }
+            })
+    })
+  */
